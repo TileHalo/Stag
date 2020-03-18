@@ -1,0 +1,25 @@
+.Dd 2020-03-18
+.Dt STAG 1
+.Os
+.Sh NAME
+.Nm stag
+.Nd 
+.Sh SYNOPSIS
+.Nm
+.Op Fl R
+.Sh DESCRIPTION
+.Nm
+is a simple tagfile generation utility.
+.Nm
+outputs universal-ctags compatible syntax.
+.Sh OPTIONS
+.Bl -tag -width Ds
+.It Fl R
+Search current directory recursively.
+.It Fl f Fl Fl file
+Specify tagfile
+.El
+.Sh CUSTOMIZATION
+.Nm
+can be customized by creating a custom config.h and (re)compiling the source
+code.

@@ -1,0 +1,2 @@
+HEADING	./test.md	/^## HEADING$/;"	h2,heading2,headings2
+testi	./test.md	/^## TODO: testi$/;"	t,todo,todos
