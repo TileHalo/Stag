@@ -13,6 +13,7 @@ static Tag parse_done(const char *, const char *);
 static Tag parse_event(const char *, const char *);
 static Tag parse_appointment(const char *, const char *);
 static Tag parse_class(const char *, const char *);
+static Tag parse_location(const char *, const char *);
 static Tag parse_heading(const char *, const char *);
 static Tag parse_uid(const char *, const char *, const char *);
 static char *addr_from_line(const char *);
@@ -39,6 +40,8 @@ slimwiki_parse(FILE *fd, Taglist *tags, const char *file)
 				tag = parse_appointment(line, file);
 			} else if (strncmp(line, "## CLASS:", 9) == 0) {
 				tag = parse_class(line, file);
+			} else if (strncmp(line, "## LOCATION:", 12) == 0) {
+				tag = parse_location(line, file);
 			} else {
 				tag = parse_heading(line, file);
 			}
@@ -155,6 +158,17 @@ parse_class(const char *line, const char *file)
 
 	tag = parse_generic_card(line, file);
 	strcpy(tag.field, "c");
+
+	return tag;
+}
+
+static Tag
+parse_location(const char *line, const char *file)
+{
+	Tag tag;
+
+	tag = parse_generic_card(line, file);
+	strcpy(tag.field, "l");
 
 	return tag;
 }

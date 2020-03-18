@@ -1,0 +1,4 @@
+tags
+*.o
+parsers/*.o
+stag
